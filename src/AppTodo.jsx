@@ -3,6 +3,10 @@ import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
 import todoReducer from './reducer/todo-reducer';
 
+const localStorage = window.localStorage;
+const localList = JSON.parse(localStorage.getItem('todoList')) || [];
+const localViewType = localStorage.getItem('viewType') || '';
+
 export default function AppTodo() {
   const [todo, setTodo] = useState('');
   const [todoList, dispatch] = useReducer(todoReducer, localList);
@@ -79,11 +83,3 @@ export default function AppTodo() {
     </>
   );
 }
-
-const initData = [
-  { checked: false, todo: '밥먹기', id: '밥먹기_0' },
-  { checked: false, todo: '양치하기', id: '양치하기_1' },
-];
-const localStorage = window.localStorage;
-const localList = JSON.parse(localStorage.getItem('todoList')) || initData;
-const localViewType = localStorage.getItem('viewType') || '';
