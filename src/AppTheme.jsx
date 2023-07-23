@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { DarkModeContext } from './context/DarkModeProvider';
+import style from './css/todo.module.css';
 
 export default function AppTheme({ children }) {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
@@ -9,19 +10,19 @@ export default function AppTheme({ children }) {
   }, [darkMode]);
 
   return (
-    <>
-      <div className="theme_select_box">
+    <div className={style.container}>
+      <div className={style['theme_select_box']}>
         <input
           type="checkbox"
           id="darkmode_switch"
           value={darkMode}
           onChange={toggleDarkMode}
         />
-        <label htmlFor="darkmode_switch">{darkMode ? 'Dark' : 'Light'}</label>
+        <label htmlFor="darkmode_switch">{darkMode ? '🌝' : '🌞'}</label>
       </div>
-      <div className={`container ${darkMode ? 'theme-dark' : ''}`}>
+      <main>
         {children}
-      </div>
-    </>
+      </main>
+    </div>
   );
 }

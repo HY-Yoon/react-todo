@@ -1,0 +1,16 @@
+.input_box{
+    display: flex;
+    margin-top: 8px;
+}
+.input_box > input {
+    width : 95%;
+    color: #666;
+}
+.input_box > button {
+    padding:  0 8px;
+    background: #ddd;
+    border-radius: 6px;
+    color: #666;
+    margin-left: 5px;
+    font-weight: 500;
+}

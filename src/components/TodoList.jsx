@@ -1,10 +1,11 @@
 import React from 'react';
+import style from '../css/list.module.css'
 
 export default function TodoList({ todoList, handleChecked, handleDelete }) {
-  return (
-    <ul className="todo_list">
-      {todoList.length
-        ? todoList.map((item) => (
+  if(todoList.length) {
+    return (
+      <ul className={style['todo_list_box']}>
+        {todoList.map((item) => (
             <li key={item.id}>
               <input
                 type="checkbox"
@@ -18,12 +19,20 @@ export default function TodoList({ todoList, handleChecked, handleDelete }) {
                 onClick={() => {
                   handleDelete(item.id);
                 }}
+                className={style.icon}
               >
-                -
+                🗑
               </button>
             </li>
-          ))
-        : ''}
-    </ul>
-  );
+        ))}
+      </ul>
+    );
+  }else{
+    return (
+      <div className={`${style['todo_list_box']} ${style['empty']}`}>
+        <span className={style.icon}>⚠️</span> 할 일을 입력해주세요.
+      </div>
+    )
+  }
+  
 }

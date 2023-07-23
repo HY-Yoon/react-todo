@@ -1,12 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;500&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css');
+.icon {font-family: Tossface;}
+
+:root {
+  --background : #fff;
+  --text-color: #666;
+  --text-color-highlight: hsl(25, 100%, 50%);
+}
+
+:root[color-theme='dark'] {
+  --background : #292d3e;
+  --text-color: hsl(210, 50%, 72%);
+  --text-color-highlight: hsl(25, 70%, 45%);
+}
+
 * {
   margin: 0;
   padding: 0;
   list-style: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  color: var(--text-color)
 }
-.theme-dark {
-  background: #292d3e;
-  color: #a29eb6;
-  --text-color-light: hsl(210, 15%, 35%);
-  --text-color-richer: hsl(210, 50%, 72%);
-  --text-color-highlight: hsl(25, 70%, 45%);
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
 }

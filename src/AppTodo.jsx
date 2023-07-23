@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState } from 'react';
 import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
 import todoReducer from './reducer/todo-reducer';
+import style from './css/todo.module.css'
 
 const localStorage = window.localStorage;
 const localList = JSON.parse(localStorage.getItem('todoList')) || [];
@@ -47,11 +48,12 @@ export default function AppTodo() {
 
   return (
     <>
-      <>
+      <div className={style.status_box}>
         <button
           onClick={() => {
             setViewType('all');
           }}
+          className={viewType === 'all' ? style.active : ''}
         >
           All
         </button>
@@ -60,6 +62,7 @@ export default function AppTodo() {
           onClick={() => {
             setViewType('active');
           }}
+          className={viewType === 'active' ? style.active : ''}
         >
           Active
         </button>
@@ -68,10 +71,11 @@ export default function AppTodo() {
           onClick={() => {
             setViewType('complete');
           }}
+          className={viewType === 'complete' ? style.active : ''}
         >
           Complete
         </button>
-      </>
+      </div>
       <TodoList
         todoList={viewTodoList}
         handleChecked={handleChecked}
